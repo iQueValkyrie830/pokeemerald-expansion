@@ -339,7 +339,7 @@ const struct Item gItems[] =
         .price = 200,
         .holdEffectParam = 20,
         .description = sPotionDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_RESTORE_HP,
@@ -348,11 +348,11 @@ const struct Item gItems[] =
 
     [ITEM_SUPER_POTION] =
     {
-        .name = _("Super Potion"),
-        .price = 700,
-        .holdEffectParam = 60,
-        .description = sSuperPotionDesc,
-        .pocket = POCKET_ITEMS,
+        .name = _("ANTIDOTE"),
+        .itemId = ITEM_ANTIDOTE,
+        .price = 100,
+        .description = sAntidoteDesc,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_RESTORE_HP,
@@ -361,15 +361,68 @@ const struct Item gItems[] =
 
     [ITEM_HYPER_POTION] =
     {
-        .name = _("Hyper Potion"),
-        .price = 1500,
-        .holdEffectParam = 120,
-        .description = sHyperPotionDesc,
-        .pocket = POCKET_ITEMS,
+        .name = _("BURN HEAL"),
+        .itemId = ITEM_BURN_HEAL,
+        .price = 250,
+        .description = sBurnHealDesc,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-        .battleUsage = EFFECT_ITEM_RESTORE_HP,
-        .flingPower = 30,
+        .battleUsage = ITEM_B_USE_MEDICINE,
+        .battleUseFunc = ItemUseInBattle_Medicine,
+    },
+
+    [ITEM_ICE_HEAL] =
+    {
+        .name = _("ICE HEAL"),
+        .itemId = ITEM_ICE_HEAL,
+        .price = 250,
+        .description = sIceHealDesc,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = ITEM_B_USE_MEDICINE,
+        .battleUseFunc = ItemUseInBattle_Medicine,
+    },
+
+    [ITEM_AWAKENING] =
+    {
+        .name = _("AWAKENING"),
+        .itemId = ITEM_AWAKENING,
+        .price = 250,
+        .description = sAwakeningDesc,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = ITEM_B_USE_MEDICINE,
+        .battleUseFunc = ItemUseInBattle_Medicine,
+    },
+
+    [ITEM_PARALYZE_HEAL] =
+    {
+        .name = _("Paralyze Heal"),
+        .itemId = ITEM_PARALYZE_HEAL,
+        .price = 200,
+        .description = sParalyzeHealDesc,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = ITEM_B_USE_MEDICINE,
+        .battleUseFunc = ItemUseInBattle_Medicine,
+    },
+
+    [ITEM_FULL_RESTORE] =
+    {
+        .name = _("FULL RESTORE"),
+        .itemId = ITEM_FULL_RESTORE,
+        .price = 3000,
+        .holdEffectParam = 255,
+        .description = sFullRestoreDesc,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = ITEM_B_USE_MEDICINE,
+        .battleUseFunc = ItemUseInBattle_Medicine,
     },
 
     [ITEM_MAX_POTION] =
@@ -378,7 +431,7 @@ const struct Item gItems[] =
         .price = 2500,
         .holdEffectParam = 255,
         .description = sMaxPotionDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_RESTORE_HP,
@@ -387,15 +440,43 @@ const struct Item gItems[] =
 
     [ITEM_FULL_RESTORE] =
     {
-        .name = _("Full Restore"),
-        .price = 3000,
-        .holdEffectParam = 255,
-        .description = sFullRestoreDesc,
-        .pocket = POCKET_ITEMS,
+        .name = _("HYPER POTION"),
+        .itemId = ITEM_HYPER_POTION,
+        .price = 1200,
+        .holdEffectParam = 200,
+        .description = sHyperPotionDesc,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
-        .battleUsage = EFFECT_ITEM_HEAL_AND_CURE_STATUS,
-        .flingPower = 30,
+        .battleUsage = ITEM_B_USE_MEDICINE,
+        .battleUseFunc = ItemUseInBattle_Medicine,
+    },
+
+    [ITEM_SUPER_POTION] =
+    {
+        .name = _("SUPER POTION"),
+        .itemId = ITEM_SUPER_POTION,
+        .price = 700,
+        .holdEffectParam = 50,
+        .description = sSuperPotionDesc,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = ITEM_B_USE_MEDICINE,
+        .battleUseFunc = ItemUseInBattle_Medicine,
+    },
+
+    [ITEM_FULL_HEAL] =
+    {
+        .name = _("FULL HEAL"),
+        .itemId = ITEM_FULL_HEAL,
+        .price = 600,
+        .description = sFullHealDesc,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = ITEM_B_USE_MEDICINE,
+        .battleUseFunc = ItemUseInBattle_Medicine,
     },
 
     [ITEM_REVIVE] =
@@ -403,7 +484,7 @@ const struct Item gItems[] =
         .name = _("Revive"),
         .price = 2000,
         .description = sReviveDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_REVIVE,
@@ -415,7 +496,7 @@ const struct Item gItems[] =
         .name = _("Max Revive"),
         .price = 4000,
         .description = sMaxReviveDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_REVIVE,
@@ -428,7 +509,7 @@ const struct Item gItems[] =
         .price = 200,
         .holdEffectParam = 30,
         .description = sFreshWaterDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_RESTORE_HP,
@@ -441,7 +522,7 @@ const struct Item gItems[] =
         .price = 300,
         .holdEffectParam = 50,
         .description = sSodaPopDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_RESTORE_HP,
@@ -454,7 +535,7 @@ const struct Item gItems[] =
         .price = 400,
         .holdEffectParam = 70,
         .description = sLemonadeDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_RESTORE_HP,
@@ -467,7 +548,7 @@ const struct Item gItems[] =
         .price = 600,
         .holdEffectParam = 100,
         .description = sMoomooMilkDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_RESTORE_HP,
@@ -479,7 +560,7 @@ const struct Item gItems[] =
         .name = _("Energy Powder"),
         .price = 500,
         .description = sEnergyPowderDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_RESTORE_HP,
@@ -491,7 +572,7 @@ const struct Item gItems[] =
         .name = _("Energy Root"),
         .price = 1200,
         .description = sEnergyRootDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_RESTORE_HP,
@@ -503,7 +584,7 @@ const struct Item gItems[] =
         .name = _("Heal Powder"),
         .price = 300,
         .description = sHealPowderDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_CURE_STATUS,
@@ -515,7 +596,7 @@ const struct Item gItems[] =
         .name = _("Revival Herb"),
         .price = 2800,
         .description = sRevivalHerbDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_REVIVE,
@@ -600,8 +681,8 @@ const struct Item gItems[] =
         .price = 1200,
         .holdEffectParam = 10,
         .description = sEtherDesc,
-        .pocket = POCKET_ITEMS,
-        .type = ITEM_USE_PARTY_MENU_MOVES,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_PPRecovery,
         .battleUsage = EFFECT_ITEM_RESTORE_PP,
         .flingPower = 30,
@@ -615,6 +696,8 @@ const struct Item gItems[] =
         .description = sMaxEtherDesc,
         .pocket = POCKET_ITEMS,
         .type = ITEM_USE_PARTY_MENU_MOVES,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_PPRecovery,
         .battleUsage = EFFECT_ITEM_RESTORE_PP,
         .flingPower = 30,
@@ -626,7 +709,7 @@ const struct Item gItems[] =
         .price = 3000,
         .holdEffectParam = 10,
         .description = sElixirDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_PPRecovery,
         .battleUsage = EFFECT_ITEM_RESTORE_PP,
@@ -639,11 +722,89 @@ const struct Item gItems[] =
         .price = 4500,
         .holdEffectParam = 255,
         .description = sMaxElixirDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_PPRecovery,
         .battleUsage = EFFECT_ITEM_RESTORE_PP,
         .flingPower = 30,
+        .battleUsage = ITEM_B_USE_MEDICINE,
+        .battleUseFunc = ItemUseInBattle_PPRecovery,
+    },
+
+    [ITEM_LAVA_COOKIE] =
+    {
+        .name = _("LAVA COOKIE"),
+        .itemId = ITEM_LAVA_COOKIE,
+        .price = 200,
+        .description = sLavaCookieDesc,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = ITEM_B_USE_MEDICINE,
+        .battleUseFunc = ItemUseInBattle_Medicine,
+    },
+
+    [ITEM_BLUE_FLUTE] =
+    {
+        .name = _("BLUE FLUTE"),
+        .itemId = ITEM_BLUE_FLUTE,
+        .price = 100,
+        .description = sBlueFluteDesc,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_Medicine,
+        .battleUsage = ITEM_B_USE_MEDICINE,
+        .battleUseFunc = ItemUseInBattle_Medicine,
+    },
+
+    [ITEM_YELLOW_FLUTE] =
+    {
+        .name = _("YELLOW FLUTE"),
+        .itemId = ITEM_YELLOW_FLUTE,
+        .price = 200,
+        .description = sYellowFluteDesc,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .battleUsage = ITEM_B_USE_MEDICINE,
+        .battleUseFunc = ItemUseInBattle_Medicine,
+    },
+
+    [ITEM_RED_FLUTE] =
+    {
+        .name = _("RED FLUTE"),
+        .itemId = ITEM_RED_FLUTE,
+        .price = 300,
+        .description = sRedFluteDesc,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .battleUsage = ITEM_B_USE_MEDICINE,
+        .battleUseFunc = ItemUseInBattle_Medicine,
+    },
+
+    [ITEM_BLACK_FLUTE] =
+    {
+        .name = _("BLACK FLUTE"),
+        .itemId = ITEM_BLACK_FLUTE,
+        .price = 400,
+        .holdEffectParam = 50,
+        .description = sBlackFluteDesc,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_BlackWhiteFlute,
+    },
+
+    [ITEM_WHITE_FLUTE] =
+    {
+        .name = _("WHITE FLUTE"),
+        .itemId = ITEM_WHITE_FLUTE,
+        .price = 500,
+        .holdEffectParam = 150,
+        .description = sWhiteFluteDesc,
+        .pocket = POCKET_MEDICINE,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_BlackWhiteFlute,
     },
 
     [ITEM_BERRY_JUICE] =
@@ -653,7 +814,7 @@ const struct Item gItems[] =
         .holdEffect = HOLD_EFFECT_RESTORE_HP,
         .holdEffectParam = 20,
         .description = sBerryJuiceDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_RESTORE_HP,
@@ -665,7 +826,7 @@ const struct Item gItems[] =
         .name = _("Sacred Ash"),
         .price = 50000,
         .description = sSacredAshDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_MEDICINE,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_SacredAsh,
         .flingPower = 30,
@@ -682,6 +843,13 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_RESTORE_HP,
         .flingPower = 30,
+        .name = _("SHOAL SALT"),
+        .itemId = ITEM_SHOAL_SALT,
+        .price = 20,
+        .description = sShoalSaltDesc,
+        .pocket = POCKET_TREASURES,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_MAX_HONEY] =
@@ -694,6 +862,13 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_REVIVE,
         .flingPower = 30,
+        .name = _("SHOAL SHELL"),
+        .itemId = ITEM_SHOAL_SHELL,
+        .price = 20,
+        .description = sShoalShellDesc,
+        .pocket = POCKET_TREASURES,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
 // Regional Specialties
@@ -708,6 +883,13 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_CURE_STATUS,
         .flingPower = 30,
+        .name = _("RED SHARD"),
+        .itemId = ITEM_RED_SHARD,
+        .price = 200,
+        .description = sRedShardDesc,
+        .pocket = POCKET_TREASURES,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_RAGE_CANDY_BAR] =
@@ -720,6 +902,13 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_CURE_STATUS,
         .flingPower = 30,
+        .name = _("BLUE SHARD"),
+        .itemId = ITEM_BLUE_SHARD,
+        .price = 200,
+        .description = sBlueShardDesc,
+        .pocket = POCKET_TREASURES,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_LAVA_COOKIE] =
@@ -732,6 +921,13 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_CURE_STATUS,
         .flingPower = 30,
+        .name = _("YELLOW SHARD"),
+        .itemId = ITEM_YELLOW_SHARD,
+        .price = 200,
+        .description = sYellowShardDesc,
+        .pocket = POCKET_TREASURES,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_OLD_GATEAU] =
@@ -744,6 +940,13 @@ const struct Item gItems[] =
         .fieldUseFunc = ItemUseOutOfBattle_Medicine,
         .battleUsage = EFFECT_ITEM_CURE_STATUS,
         .flingPower = 30,
+        .name = _("GREEN SHARD"),
+        .itemId = ITEM_GREEN_SHARD,
+        .price = 200,
+        .description = sGreenShardDesc,
+        .pocket = POCKET_TREASURES,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_CASTELIACONE] =
@@ -984,6 +1187,11 @@ const struct Item gItems[] =
         .price = 20,
         .description = sLonelyMintDesc,
         .pocket = POCKET_ITEMS,
+        .name = _("GUARD SPEC."),
+        .itemId = ITEM_GUARD_SPEC,
+        .price = 700,
+        .description = sGuardSpecDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
         .flingPower = 10,
@@ -995,6 +1203,11 @@ const struct Item gItems[] =
         .price = 20,
         .description = sAdamantMintDesc,
         .pocket = POCKET_ITEMS,
+        .name = _("DIRE HIT"),
+        .itemId = ITEM_DIRE_HIT,
+        .price = 650,
+        .description = sDireHitDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
         .flingPower = 10,
@@ -1006,6 +1219,11 @@ const struct Item gItems[] =
         .price = 20,
         .description = sNaughtyMintDesc,
         .pocket = POCKET_ITEMS,
+        .name = _("X ATTACK"),
+        .itemId = ITEM_X_ATTACK,
+        .price = 500,
+        .description = sXAttackDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
         .flingPower = 10,
@@ -1017,6 +1235,11 @@ const struct Item gItems[] =
         .price = 20,
         .description = sBraveMintDesc,
         .pocket = POCKET_ITEMS,
+        .name = _("X DEFEND"),
+        .itemId = ITEM_X_DEFEND,
+        .price = 550,
+        .description = sXDefendDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
         .flingPower = 10,
@@ -1028,6 +1251,11 @@ const struct Item gItems[] =
         .price = 20,
         .description = sBoldMintDesc,
         .pocket = POCKET_ITEMS,
+        .name = _("X SPEED"),
+        .itemId = ITEM_X_SPEED,
+        .price = 350,
+        .description = sXSpeedDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
         .flingPower = 10,
@@ -1039,6 +1267,11 @@ const struct Item gItems[] =
         .price = 20,
         .description = sImpishMintDesc,
         .pocket = POCKET_ITEMS,
+        .name = _("X ACCURACY"),
+        .itemId = ITEM_X_ACCURACY,
+        .price = 950,
+        .description = sXAccuracyDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
         .flingPower = 10,
@@ -1050,6 +1283,11 @@ const struct Item gItems[] =
         .price = 20,
         .description = sLaxMintDesc,
         .pocket = POCKET_ITEMS,
+        .name = _("X SPECIAL"),
+        .itemId = ITEM_X_SPECIAL,
+        .price = 350,
+        .description = sXSpecialDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse, // Todo
         .flingPower = 10,
@@ -1256,6 +1494,12 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
         .flingPower = 30,
+        .description = sPokeDollDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .battleUsage = ITEM_B_USE_OTHER,
+        .battleUseFunc = ItemUseInBattle_Escape,
     },
 
     [ITEM_EXP_CANDY_L] =
@@ -1268,6 +1512,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
         .flingPower = 30,
+        .name = _("FLUFFY TAIL"),
+        .itemId = ITEM_FLUFFY_TAIL,
+        .price = 1000,
+        .description = sFluffyTailDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .battleUsage = ITEM_B_USE_OTHER,
+        .battleUseFunc = ItemUseInBattle_Escape,
     },
 
     [ITEM_EXP_CANDY_XL] =
@@ -1475,6 +1728,235 @@ const struct Item gItems[] =
         .holdEffectParam = X_ITEM_STAGES,
         .description = sXDefenseDesc,
         .pocket = POCKET_ITEMS,
+        .name = _("????????"),
+        .itemId = ITEM_NONE,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_059] =
+    {
+        .name = _("????????"),
+        .itemId = ITEM_NONE,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_05A] =
+    {
+        .name = _("????????"),
+        .itemId = ITEM_NONE,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_05B] =
+    {
+        .name = _("????????"),
+        .itemId = ITEM_NONE,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_05C] =
+    {
+        .name = _("????????"),
+        .itemId = ITEM_NONE,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+// Evolution stones
+
+    [ITEM_SUN_STONE] =
+    {
+        .name = _("SUN STONE"),
+        .itemId = ITEM_SUN_STONE,
+        .price = 2100,
+        .description = sSunStoneDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+    },
+
+    [ITEM_MOON_STONE] =
+    {
+        .name = _("MOON STONE"),
+        .itemId = ITEM_MOON_STONE,
+        .price = 0,
+        .description = sMoonStoneDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+    },
+
+    [ITEM_FIRE_STONE] =
+    {
+        .name = _("FIRE STONE"),
+        .itemId = ITEM_FIRE_STONE,
+        .price = 2100,
+        .description = sFireStoneDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+    },
+
+    [ITEM_THUNDER_STONE] =
+    {
+        .name = _("THUNDERSTONE"),
+        .itemId = ITEM_THUNDER_STONE,
+        .price = 2100,
+        .description = sThunderStoneDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+    },
+
+    [ITEM_WATER_STONE] =
+    {
+        .name = _("WATER STONE"),
+        .itemId = ITEM_WATER_STONE,
+        .price = 2100,
+        .description = sWaterStoneDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+    },
+
+    [ITEM_LEAF_STONE] =
+    {
+        .name = _("LEAF STONE"),
+        .itemId = ITEM_LEAF_STONE,
+        .price = 2100,
+        .description = sLeafStoneDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_PARTY_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_EvolutionStone,
+    },
+
+    [ITEM_063] =
+    {
+        .name = _("????????"),
+        .itemId = ITEM_NONE,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_064] =
+    {
+        .name = _("????????"),
+        .itemId = ITEM_NONE,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_065] =
+    {
+        .name = _("????????"),
+        .itemId = ITEM_NONE,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_066] =
+    {
+        .name = _("????????"),
+        .itemId = ITEM_NONE,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+// Valuable items
+
+    [ITEM_TINY_MUSHROOM] =
+    {
+        .name = _("TINYMUSHROOM"),
+        .itemId = ITEM_TINY_MUSHROOM,
+        .price = 500,
+        .description = sTinyMushroomDesc,
+        .pocket = POCKET_TREASURES,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_BIG_MUSHROOM] =
+    {
+        .name = _("BIG MUSHROOM"),
+        .itemId = ITEM_BIG_MUSHROOM,
+        .price = 5000,
+        .description = sBigMushroomDesc,
+        .pocket = POCKET_TREASURES,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_069] =
+    {
+        .name = _("????????"),
+        .itemId = ITEM_NONE,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_PEARL] =
+    {
+        .name = _("PEARL"),
+        .itemId = ITEM_PEARL,
+        .price = 1400,
+        .description = sPearlDesc,
+        .pocket = POCKET_TREASURES,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_BIG_PEARL] =
+    {
+        .name = _("BIG PEARL"),
+        .itemId = ITEM_BIG_PEARL,
+        .price = 7500,
+        .description = sBigPearlDesc,
+        .pocket = POCKET_TREASURES,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_STARDUST] =
+    {
+        .name = _("STARDUST"),
+        .itemId = ITEM_STARDUST,
+        .price = 2000,
+        .description = sStardustDesc,
+        .pocket = POCKET_TREASURES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .battleUsage = EFFECT_ITEM_INCREASE_STAT,
@@ -1488,6 +1970,11 @@ const struct Item gItems[] =
         .holdEffectParam = X_ITEM_STAGES,
         .description = sXSpAtkDesc,
         .pocket = POCKET_ITEMS,
+        .name = _("STAR PIECE"),
+        .itemId = ITEM_STAR_PIECE,
+        .price = 9800,
+        .description = sStarPieceDesc,
+        .pocket = POCKET_TREASURES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .battleUsage = EFFECT_ITEM_INCREASE_STAT,
@@ -1636,7 +2123,7 @@ const struct Item gItems[] =
         .name = _("Nugget"),
         .price = 10000,
         .description = sNuggetDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_TREASURES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 30,
@@ -1823,7 +2310,7 @@ const struct Item gItems[] =
         .name = _("Heart Scale"),
         .price = 100,
         .description = sHeartScaleDesc,
-        .pocket = POCKET_ITEMS,
+        .pocket = POCKET_TREASURES,
         .type = ITEM_USE_BAG_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .flingPower = 30,
@@ -7166,6 +7653,63 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_FOCUS_PUNCH,
+        .name = _("????????"),
+        .itemId = ITEM_NONE,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_UNUSED_BERRY_3] =
+    {
+        .name = _("????????"),
+        .itemId = ITEM_NONE,
+        .price = 0,
+        .description = sDummyDesc,
+        .pocket = POCKET_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+// Hold items
+
+    [ITEM_BRIGHT_POWDER] =
+    {
+        .name = _("BRIGHTPOWDER"),
+        .itemId = ITEM_BRIGHT_POWDER,
+        .price = 10,
+        .holdEffect = HOLD_EFFECT_EVASION_UP,
+        .holdEffectParam = 10,
+        .description = sBrightPowderDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_WHITE_HERB] =
+    {
+        .name = _("WHITE HERB"),
+        .itemId = ITEM_WHITE_HERB,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_RESTORE_STATS,
+        .description = sWhiteHerbDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+    },
+
+    [ITEM_MACHO_BRACE] =
+    {
+        .name = _("MACHO BRACE"),
+        .itemId = ITEM_MACHO_BRACE,
+        .price = 3000,
+        .holdEffect = HOLD_EFFECT_MACHO_BRACE,
+        .description = sMachoBraceDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_DRAGON_CLAW] =
@@ -7178,6 +7722,11 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_DRAGON_CLAW,
+        .holdEffect = HOLD_EFFECT_EXP_SHARE,
+        .description = sExpShareDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_WATER_PULSE] =
@@ -7190,6 +7739,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_WATER_PULSE,
+        .name = _("QUICK CLAW"),
+        .itemId = ITEM_QUICK_CLAW,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_QUICK_CLAW,
+        .holdEffectParam = 20,
+        .description = sQuickClawDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_CALM_MIND] =
@@ -7214,6 +7772,14 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_ROAR,
+        .name = _("MENTAL HERB"),
+        .itemId = ITEM_MENTAL_HERB,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_CURE_ATTRACT,
+        .description = sMentalHerbDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_TOXIC] =
@@ -7226,6 +7792,14 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_TOXIC,
+        .name = _("CHOICE BAND"),
+        .itemId = ITEM_CHOICE_BAND,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_CHOICE_BAND,
+        .description = sChoiceBandDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_HAIL] =
@@ -7250,6 +7824,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_BULK_UP,
+        .name = _("SILVERPOWDER"),
+        .itemId = ITEM_SILVER_POWDER,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_BUG_POWER,
+        .holdEffectParam = 10,
+        .description = sSilverPowderDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_BULLET_SEED] =
@@ -7286,6 +7869,14 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_SUNNY_DAY,
+        .name = _("SOUL DEW"),
+        .itemId = ITEM_SOUL_DEW,
+        .price = 200,
+        .holdEffect = HOLD_EFFECT_SOUL_DEW,
+        .description = sSoulDewDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_TAUNT] =
@@ -7322,6 +7913,14 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_BLIZZARD,
+        .name = _("SMOKE BALL"),
+        .itemId = ITEM_SMOKE_BALL,
+        .price = 200,
+        .holdEffect = HOLD_EFFECT_CAN_ALWAYS_RUN,
+        .description = sSmokeBallDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_HYPER_BEAM] =
@@ -7346,6 +7945,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_LIGHT_SCREEN,
+        .name = _("FOCUS BAND"),
+        .itemId = ITEM_FOCUS_BAND,
+        .price = 200,
+        .holdEffect = HOLD_EFFECT_FOCUS_BAND,
+        .holdEffectParam = 10,
+        .description = sFocusBandDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_PROTECT] =
@@ -7370,6 +7978,14 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_RAIN_DANCE,
+        .name = _("SCOPE LENS"),
+        .itemId = ITEM_SCOPE_LENS,
+        .price = 200,
+        .holdEffect = HOLD_EFFECT_SCOPE_LENS,
+        .description = sScopeLensDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_GIGA_DRAIN] =
@@ -7394,6 +8010,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_SAFEGUARD,
+        .name = _("LEFTOVERS"),
+        .itemId = ITEM_LEFTOVERS,
+        .price = 200,
+        .holdEffect = HOLD_EFFECT_LEFTOVERS,
+        .holdEffectParam = 10,
+        .description = sLeftoversDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_FRUSTRATION] =
@@ -7418,6 +8043,14 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_SOLAR_BEAM,
+        .name = _("LIGHT BALL"),
+        .itemId = ITEM_LIGHT_BALL,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_LIGHT_BALL,
+        .description = sLightBallDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_IRON_TAIL] =
@@ -7430,6 +8063,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_IRON_TAIL,
+        .name = _("SOFT SAND"),
+        .itemId = ITEM_SOFT_SAND,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_GROUND_POWER,
+        .holdEffectParam = 10,
+        .description = sSoftSandDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_THUNDERBOLT] =
@@ -7442,6 +8084,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_THUNDERBOLT,
+        .name = _("HARD STONE"),
+        .itemId = ITEM_HARD_STONE,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_ROCK_POWER,
+        .holdEffectParam = 10,
+        .description = sHardStoneDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_THUNDER] =
@@ -7454,6 +8105,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_THUNDER,
+        .name = _("MIRACLE SEED"),
+        .itemId = ITEM_MIRACLE_SEED,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_GRASS_POWER,
+        .holdEffectParam = 10,
+        .description = sMiracleSeedDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_EARTHQUAKE] =
@@ -7466,6 +8126,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_EARTHQUAKE,
+        .name = _("BLACKGLASSES"),
+        .itemId = ITEM_BLACK_GLASSES,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_DARK_POWER,
+        .holdEffectParam = 10,
+        .description = sBlackGlassesDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_RETURN] =
@@ -7478,6 +8147,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_RETURN,
+        .name = _("BLACK BELT"),
+        .itemId = ITEM_BLACK_BELT,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_FIGHTING_POWER,
+        .holdEffectParam = 10,
+        .description = sBlackBeltDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_DIG] =
@@ -7490,6 +8168,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_DIG,
+        .name = _("MAGNET"),
+        .itemId = ITEM_MAGNET,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_ELECTRIC_POWER,
+        .holdEffectParam = 10,
+        .description = sMagnetDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_PSYCHIC] =
@@ -7502,6 +8189,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_PSYCHIC,
+        .name = _("MYSTIC WATER"),
+        .itemId = ITEM_MYSTIC_WATER,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_WATER_POWER,
+        .holdEffectParam = 10,
+        .description = sMysticWaterDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_SHADOW_BALL] =
@@ -7514,6 +8210,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_SHADOW_BALL,
+        .name = _("SHARP BEAK"),
+        .itemId = ITEM_SHARP_BEAK,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_FLYING_POWER,
+        .holdEffectParam = 10,
+        .description = sSharpBeakDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_BRICK_BREAK] =
@@ -7526,6 +8231,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_BRICK_BREAK,
+        .name = _("POISON BARB"),
+        .itemId = ITEM_POISON_BARB,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_POISON_POWER,
+        .holdEffectParam = 10,
+        .description = sPoisonBarbDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_DOUBLE_TEAM] =
@@ -7538,6 +8252,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_DOUBLE_TEAM,
+        .name = _("NEVERMELTICE"),
+        .itemId = ITEM_NEVER_MELT_ICE,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_ICE_POWER,
+        .holdEffectParam = 10,
+        .description = sNeverMeltIceDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_REFLECT] =
@@ -7550,6 +8273,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_REFLECT,
+        .name = _("SPELL TAG"),
+        .itemId = ITEM_SPELL_TAG,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_GHOST_POWER,
+        .holdEffectParam = 10,
+        .description = sSpellTagDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_SHOCK_WAVE] =
@@ -7562,6 +8294,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_SHOCK_WAVE,
+        .name = _("TWISTEDSPOON"),
+        .itemId = ITEM_TWISTED_SPOON,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_PSYCHIC_POWER,
+        .holdEffectParam = 10,
+        .description = sTwistedSpoonDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_FLAMETHROWER] =
@@ -7574,6 +8315,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_FLAMETHROWER,
+        .name = _("CHARCOAL"),
+        .itemId = ITEM_CHARCOAL,
+        .price = 9800,
+        .holdEffect = HOLD_EFFECT_FIRE_POWER,
+        .holdEffectParam = 10,
+        .description = sCharcoalDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_SLUDGE_BOMB] =
@@ -7586,6 +8336,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_SLUDGE_BOMB,
+        .name = _("DRAGON FANG"),
+        .itemId = ITEM_DRAGON_FANG,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_DRAGON_POWER,
+        .holdEffectParam = 10,
+        .description = sDragonFangDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_SANDSTORM] =
@@ -7598,6 +8357,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_SANDSTORM,
+        .name = _("SILK SCARF"),
+        .itemId = ITEM_SILK_SCARF,
+        .price = 100,
+        .holdEffect = HOLD_EFFECT_NORMAL_POWER,
+        .holdEffectParam = 10,
+        .description = sSilkScarfDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_FIRE_BLAST] =
@@ -7622,6 +8390,15 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_ROCK_TOMB,
+        .name = _("SHELL BELL"),
+        .itemId = ITEM_SHELL_BELL,
+        .price = 200,
+        .holdEffect = HOLD_EFFECT_SHELL_BELL,
+        .holdEffectParam = 8,
+        .description = sShellBellDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_AERIAL_ACE] =
@@ -7658,6 +8435,14 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_FACADE,
+        .name = _("LUCKY PUNCH"),
+        .itemId = ITEM_LUCKY_PUNCH,
+        .price = 10,
+        .holdEffect = HOLD_EFFECT_LUCKY_PUNCH,
+        .description = sLuckyPunchDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_SECRET_POWER] =
@@ -7670,6 +8455,14 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_SECRET_POWER,
+        .name = _("METAL POWDER"),
+        .itemId = ITEM_METAL_POWDER,
+        .price = 10,
+        .holdEffect = HOLD_EFFECT_METAL_POWDER,
+        .description = sMetalPowderDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_REST] =
@@ -7682,6 +8475,14 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_REST,
+        .name = _("THICK CLUB"),
+        .itemId = ITEM_THICK_CLUB,
+        .price = 500,
+        .holdEffect = HOLD_EFFECT_THICK_CLUB,
+        .description = sThickClubDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_ATTRACT] =
@@ -7694,6 +8495,14 @@ const struct Item gItems[] =
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_TMHM,
         .secondaryId = MOVE_ATTRACT,
+        .name = _("STICK"),
+        .itemId = ITEM_STICK,
+        .price = 200,
+        .holdEffect = HOLD_EFFECT_STICK,
+        .description = sStickDesc,
+        .pocket = POCKET_BATTLE_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
     },
 
     [ITEM_TM_THIEF] =
